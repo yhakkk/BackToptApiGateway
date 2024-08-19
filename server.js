@@ -1,5 +1,6 @@
 import express from 'express';
-const { createProxyMiddleware } = require('http-proxy-middleware');
+import { createProxyMiddleware } from 'http-proxy-middleware';
+
 
 const app = express();
 const port = 4000;
