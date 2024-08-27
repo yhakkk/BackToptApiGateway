@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"email\": \"raul\",\r\n    \"password\": \"1234\"\r\n}",
+					"raw": "{\r\n    \"email\": \"tomas@gmail.com\",\r\n    \"password\": \"123\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -83,7 +83,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJhdWwiLCJpYXQiOjE3MjQ3MTc2MDcsImV4cCI6MTcyNDcyMTIwN30.3r6aowEtZXzReottdKwbheo4QKxDKuYJDKAoWbnzb8Y",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRvbWFzQGdtYWlsLmNvbSIsImlhdCI6MTcyNDcxOTE2MSwiZXhwIjoxNzI0NzIyNzYxfQ.QBNfA_NqD3DZ8Dsb8VS5f5IQQ6LenR1jpZMbVdYO6LM",
 							"type": "string"
 						}
 					]
@@ -92,7 +92,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"token\":\"778180\"\r\n}",
+					"raw": "{\r\n    \"email\":\"tomas@gmail.com\",\r\n    \"token\":\"415217\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"

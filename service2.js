@@ -53,24 +53,30 @@ app.post('/generate-qr', verifyToken, async (req, res) => {
 
 
 
-app.post('/verify-totp', (req, res) => {
-  const { token } = req.body;
+app.post('/verify-totp', async (req, res) => {
+  const { token, email } = req.body;
 
-  if (!secret) {
-    return res.status(400).send('Secret no definido. Generar QR primero.');
-  }
+  try {
+    const user = await User.findOne({ email });
 
+    if (!user || !user.secret) {
+      return res.status(400).send('Usuario no encontrado o secret no definido.');
+    }
 
-  const verified = speakeasy.totp.verify({
-    secret: secret.base32,
-    encoding: 'base32',
-    token: token
-  });
+    const verified = speakeasy.totp.verify({
+      secret: user.secret,
+      encoding: 'base32',
+      token: token
+    });
 
-  if (verified) {
-    res.send('🤙🏼🤙🏼🤙🏼🤙🏼');
-  } else {
-    res.send('👎🏼👎🏼👎🏼👎🏼');
+    if (verified) {
+      res.send('🤙🏼🤙🏼🤙🏼🤙🏼');
+    } else {
+      res.send('👎🏼👎🏼👎🏼👎🏼');
+    }
+  } catch (error) {
+    console.error('Error verificando TOTP:', error);
+    res.status(500).send('Error interno al verificar el TOTP');
   }
 });
 

@@ -29,10 +29,10 @@ export const verifyToken = (req, res, next) => {
 
   // Middleware para verificar TOTP
 export const verifyTOTP = async (req, res, next) => {
-    const { token } = req.body; 
+    const { token, email} = req.body; 
   
     try {
-      const response = await axios.post('http://localhost:4002/verify-totp', { token});
+      const response = await axios.post('http://localhost:4002/verify-totp', {token, email});
   
       if (response.data.includes('🤙🏼')) {
         next();
